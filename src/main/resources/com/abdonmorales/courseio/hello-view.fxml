@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.abdonmorales.courseio.CourseFormController">
+
+    <!-- Top: form + buttons -->
+    <top>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <GridPane hgap="10" vgap="10">
+                <Label text="Course Code:"     GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="courseCodeField"   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Course Name:"     GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="courseNameField"   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Meeting Info:"    GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="courseMeetingField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button fx:id="addButton" onAction="#onAddCourse" text="Add Course">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-plus"/>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets top="5" right="0" bottom="5" left="0"/>
+                    </HBox.margin>
+                </Button>
+
+                <Button fx:id="removeButton" onAction="#onRemoveSelectedCourse" text="Remove Selected">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-trash"/>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center: list of courses -->
+    <center>
+        <TableView fx:id="courseTable" prefHeight="200" prefWidth="400">
+            <columns>
+                <TableColumn fx:id="codeColumn"    text="Code"    prefWidth="100"/>
+                <TableColumn fx:id="nameColumn"    text="Name"    prefWidth="200"/>
+                <TableColumn fx:id="meetingColumn" text="Meeting" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

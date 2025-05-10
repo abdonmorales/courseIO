@@ -1,6 +1,6 @@
-# CourseIO 1.0 Beta ⚠️
+# CourseIO 1.0 Beta-J ⚠️
 
-A web-based course schedule/management system that is self-hosted and is currently capped to single-user mode. 
-Note: This is beta project with primitive features, but will mature into a more usuable web application.
+A Java course schedule/management system that is a desktop application for all platforms with JVM.
+Note: This is beta project with primitive features, but will mature into a more usuable application.
 
-&copy; 2024 Abdon Morales
+&copy; 2025 Abdon Morales
