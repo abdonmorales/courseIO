@@ -9,6 +9,7 @@ module com.abdonmorales.courseio {
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.fontawesome5;
+    requires java.desktop;
 
     opens com.abdonmorales.courseio to javafx.fxml;
     exports com.abdonmorales.courseio;

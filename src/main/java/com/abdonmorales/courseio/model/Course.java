@@ -1,17 +1,18 @@
 package com.abdonmorales.courseio.model;
-
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import com.abdonmorales.courseio.Time;
+import javafx.beans.property.*;
 
 public class Course {
     private final SimpleStringProperty courseCode = new SimpleStringProperty();
     private final SimpleStringProperty courseName = new SimpleStringProperty();
-    private final SimpleStringProperty courseMeeting = new SimpleStringProperty();
+    private final SimpleObjectProperty<Time> courseMeeting = new SimpleObjectProperty<>();
+    private final SimpleStringProperty courseNote = new SimpleStringProperty();
 
-    public Course(String courseCode, String courseName, String courseMeeting) {
+    public Course(String courseCode, String courseName, String courseNote, Time courseTime) {
         this.courseCode.set(courseCode);
         this.courseName.set(courseName);
-        this.courseMeeting.set(courseMeeting);
+        this.courseNote.set(courseNote);
+        this.courseMeeting.set(courseTime);
     }
 
     public String getCourseCode() {
@@ -22,8 +23,12 @@ public class Course {
         return courseName.get();
     }
 
+    public String getCourseNote() {
+        return courseNote.get();
+    }
+
     public String getCourseMeeting() {
-        return courseMeeting.get();
+        return courseMeeting.get().toString();
     }
 
     public StringProperty courseCodeProperty() {
@@ -34,7 +39,11 @@ public class Course {
         return courseName;
     }
 
-    public StringProperty courseMeetingProperty() {
-        return courseMeeting;
+    public StringProperty courseNoteProperty() {
+        return courseNote;
+    }
+
+    public ReadOnlyStringProperty courseMeetingProperty() {
+        return new ReadOnlyStringWrapper(getCourseMeeting());
     }
 }
